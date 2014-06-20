@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>sample</title>
+</head>
+<body>
+  <div id="Continar">
+  </div>
+    <script src="http://localhost:60001/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect('http://localhost:60001');//, {transports: ["websocket", "polling"]});
+      socket.on('connect', function() {
+        socket.emit("message","hay");
+      });
+      socket.on('reply', function(msg) {
+        document.getElementById("Continar").innerHTML = msg;
+      });
+    </script>
+</body>
+</html>
+
